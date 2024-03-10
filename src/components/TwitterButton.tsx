@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 
 type Props = {
   title: string;
@@ -9,6 +9,7 @@ type Props = {
 
 export const TwitterButton = (props: Props) => {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
   const { title, description } = props;
 
   return (
@@ -18,7 +19,11 @@ export const TwitterButton = (props: Props) => {
       }
       href={createTwitterUrl(
         title,
-        description + " https://camera-swamp.vercel.app/" + pathname,
+        description +
+          " https://camera-swamp.vercel.app" +
+          pathname +
+          "?" +
+          searchParams.toString(),
       )}
       target="_blank"
       rel="noopener noreferrer"
