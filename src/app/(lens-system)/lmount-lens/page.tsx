@@ -1,6 +1,11 @@
 import { getLMountLensList } from "@/data/LMountLensList";
 import { LensSystemList } from "@/components/LensSystemList";
 import { Suspense } from "react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Lマウントレンズシステムシミュレーター",
+};
 
 export default async function Home() {
   const targetLensList = await getLMountLensList();

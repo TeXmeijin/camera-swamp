@@ -1,15 +1,26 @@
+import { Metadata } from "next";
 import Link from "next/link";
 
+export const metadata: Metadata = {
+  title: {
+    default: "レンズシステム計画ツール",
+    template: "%s | レンズシステム計画ツール",
+  },
+  description:
+    "自分が持っているレンズと、これから欲しいレンズの組合せをシミュレーションして、スペックや想定費用を算出します。Lマウント（LUMIX（Panasonic）SIGMA）に対応。今後Zマウント、RFマウントなど対応予定。",
+};
 export default async function Home() {
   return (
     <section className="w-full py-12 md:py-24 xl:py-32">
       <div className="container mx-auto flex flex-col items-center gap-4 px-4 md:px-6">
         <div className="space-y-2 text-center">
           <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-            私のレンズシミュレーター
+            レンズシステム計画ツール
           </h1>
           <p className="mx-auto max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
-            自分が持っているレンズと、これから欲しいレンズの組合せをシミュレーションして、スペックや想定費用を算出します。
+            自分が持っているレンズと、これから欲しいレンズの組合せを
+            <br />
+            シミュレーションして、スペックや想定費用を算出します。
           </p>
         </div>
         <div className="w-full grid max-w-sm gap-4 sm:max-w-none sm:grid-cols-2 lg:grid-cols-3">
