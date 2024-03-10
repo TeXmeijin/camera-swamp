@@ -51,7 +51,7 @@ export const SystemStateDisplay = ({ state }: { state: SystemState }) => {
                 className={
                   "border border-emerald-300 rounded-full py-1 px-3 flex items-center"
                 }
-                key={name}
+                key={name + "having"}
               >
                 <span>{name}</span>
                 {state.sellingLenses.filter(
@@ -94,7 +94,7 @@ export const SystemStateDisplay = ({ state }: { state: SystemState }) => {
                   className={
                     "border text-sm border-emerald-300 rounded-full py-1 px-3 flex items-center"
                   }
-                  key={name}
+                  key={name + "want"}
                 >
                   {name}
                   {rank && (
@@ -126,7 +126,7 @@ export const SystemStateDisplay = ({ state }: { state: SystemState }) => {
                 className={
                   "border border-emerald-300 rounded-full py-1 px-3 flex items-center"
                 }
-                key={name}
+                key={name + "full"}
               >
                 <span>{name}</span>
               </p>

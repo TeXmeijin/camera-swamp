@@ -189,7 +189,7 @@ export const LensSystemList = ({
               return (
                 <div
                   className={clsx(
-                    "flex w-full px-4 py-3 odd:bg-emerald-50",
+                    "flex w-full px-4 py-3 odd:bg-emerald-50 box-border border-2",
                     isChecked(lens.id, "having") &&
                       "border-2 border-emerald-800 rounded relative",
                     isChecked(lens.id, "want") &&
