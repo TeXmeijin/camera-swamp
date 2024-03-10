@@ -33,6 +33,7 @@ export const LMountLensList: Lens[] = [
     maxMagnification: 0.3,
     filterSize: 67,
     mount: "L",
+    goopassRentalRank: 2,
   },
   /**
    * 100mm F2.8 macro
@@ -85,6 +86,7 @@ export const LMountLensList: Lens[] = [
     maxMagnification: 1.0,
     filterSize: 62,
     mount: "L",
+    goopassRentalRank: 2,
   },
   /**
    * 28 - 200mm MACRO f4 - f7.1
@@ -137,6 +139,7 @@ export const LMountLensList: Lens[] = [
     maxMagnification: 0.15,
     filterSize: 82,
     mount: "L",
+    goopassRentalRank: 2,
   },
   /**
    * 20mm - 60mm F3.5 -5.6
@@ -163,6 +166,7 @@ export const LMountLensList: Lens[] = [
     maxMagnification: 0.43,
     filterSize: 67,
     mount: "L",
+    goopassRentalRank: 1,
   },
   /**
    * 50mm f1.8
@@ -189,6 +193,7 @@ export const LMountLensList: Lens[] = [
     maxMagnification: 0.14,
     filterSize: 67,
     mount: "L",
+    goopassRentalRank: 1,
   },
   /**
    * 70 - 200 f4
@@ -215,6 +220,7 @@ export const LMountLensList: Lens[] = [
     maxMagnification: 0.25,
     filterSize: 77,
     mount: "L",
+    goopassRentalRank: 3,
   },
   /**
    * 70 - 300mm f4.5 - 5,6
@@ -241,6 +247,7 @@ export const LMountLensList: Lens[] = [
     maxMagnification: 0.5,
     filterSize: 77,
     mount: "L",
+    goopassRentalRank: 3,
   },
   /**
    * 90mm f2.8
@@ -268,5 +275,6 @@ export const LMountLensList: Lens[] = [
     maxMagnification: 0.2,
     filterSize: 55,
     mount: "L",
+    goopassRentalRank: 2,
   },
 ];
