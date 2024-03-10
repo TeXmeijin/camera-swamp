@@ -1,14 +1,5 @@
-import { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: {
-    default: "レンズシステム計画ツール",
-    template: "%s | レンズシステム計画ツール",
-  },
-  description:
-    "自分が持っているレンズと、これから欲しいレンズの組合せをシミュレーションして、スペックや想定費用を算出します。Lマウント（LUMIX（Panasonic）SIGMA）に対応。今後Zマウント、RFマウントなど対応予定。",
-};
 export default async function Home() {
   return (
     <section className="w-full py-12 md:py-24 xl:py-32">
@@ -48,7 +39,7 @@ export default async function Home() {
               </svg>
             </div>
             <h3 className="inset-x-0 bottom-0 flex items-center justify-center h-12 px-4 font-semibold bg-gray-900/90 translate-y-full transition-transform dark:bg-gray-50 dark:translate-y-0">
-              L Mount
+              Lマウント
             </h3>
           </Link>
           <Link
@@ -76,7 +67,7 @@ export default async function Home() {
               <p className="mt-4">近日公開予定</p>
             </div>
             <h3 className="inset-x-0 bottom-0 flex items-center justify-center h-12 px-4 font-semibold bg-gray-900/90 translate-y-full transition-transform dark:bg-gray-50 dark:translate-y-0">
-              Z Mount
+              Zマウント
             </h3>
           </Link>
           <Link
@@ -104,7 +95,7 @@ export default async function Home() {
               <p className="mt-4">近日公開予定</p>
             </div>
             <h3 className="inset-x-0 bottom-0 flex items-center justify-center h-12 px-4 font-semibold bg-gray-900/90 translate-y-full transition-transform dark:bg-gray-50 dark:translate-y-0">
-              RF Mount
+              マイクロフォーサーズ
             </h3>
           </Link>
         </div>

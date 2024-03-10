@@ -26,7 +26,7 @@ export default function RootLayout({
             className={"px-2 flex gap-x-0.5 text-gray-400 items-center"}
             href={"#"}
           >
-            <span>RFマウント</span>
+            <span>マイクロフォーサーズ</span>
             <span className={"text-xs font-bold"}>近日公開</span>
           </Link>
         </div>
