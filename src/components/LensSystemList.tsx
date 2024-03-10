@@ -184,12 +184,45 @@ export const LensSystemList = ({
             };
             const makerColor =
               lens.makerId === "SIGMA" ? "bg-gray-600" : "bg-red-600";
-            if (lens.zoomType === "single") {
+
+            const Wrapper = ({ children }: { children: React.ReactNode }) => {
               return (
                 <div
-                  className={"flex w-full p-4 odd:bg-emerald-50"}
+                  className={clsx(
+                    "flex w-full px-4 py-3 odd:bg-emerald-50",
+                    isChecked(lens.id, "having") &&
+                      "border-2 border-emerald-800 rounded relative",
+                    isChecked(lens.id, "want") &&
+                      "border-2 border-blue-400 rounded relative",
+                  )}
                   key={lens.id}
                 >
+                  {isChecked(lens.id, "having") && (
+                    <div
+                      className={
+                        "absolute top-0 left-0 rounded-br-lg bg-emerald-800 text-white font-bold py-1 px-2 text-sm"
+                      }
+                    >
+                      所有
+                    </div>
+                  )}
+                  {isChecked(lens.id, "want") && (
+                    <div
+                      className={
+                        "absolute top-0 left-0 rounded-br-lg bg-blue-400 text-white font-bold py-1 px-2 text-sm"
+                      }
+                    >
+                      欲しい
+                    </div>
+                  )}
+                  {children}
+                </div>
+              );
+            };
+
+            if (lens.zoomType === "single") {
+              return (
+                <Wrapper key={lens.id}>
                   <div
                     className={"flex "}
                     style={{
@@ -219,7 +252,7 @@ export const LensSystemList = ({
                       removeLens={removeLens}
                     />
                   </div>
-                </div>
+                </Wrapper>
               );
             }
             const getWidth = (wide: number, tele: number) => {
@@ -230,10 +263,7 @@ export const LensSystemList = ({
                 ? lens.fValue.wide
                 : `${lens.fValue.wide} - ${lens.fValue.tele}`;
             return (
-              <div
-                className={"flex w-full p-4 odd:bg-emerald-50"}
-                key={lens.id}
-              >
+              <Wrapper key={lens.id}>
                 <div
                   className={"flex"}
                   style={{
@@ -269,7 +299,7 @@ export const LensSystemList = ({
                     removeLens={removeLens}
                   />
                 </div>
-              </div>
+              </Wrapper>
             );
           })}
       </div>
