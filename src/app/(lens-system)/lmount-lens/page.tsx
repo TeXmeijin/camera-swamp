@@ -1,5 +1,6 @@
 import { getLMountLensList } from "@/data/LMountLensList";
 import { LensSystemList } from "@/components/LensSystemList";
+import { Suspense } from "react";
 
 export default async function Home() {
   const targetLensList = await getLMountLensList();
@@ -15,7 +16,9 @@ export default async function Home() {
           価格は価格ドットコム最安値、買取はマップカメラのワンプライズ買取を参考に手動更新しています。
           各スペックは公式サイト参照。
         </p>
-        <LensSystemList targetLensList={targetLensList} />
+        <Suspense>
+          <LensSystemList targetLensList={targetLensList} />
+        </Suspense>
         <div className={"h-[400px]"}></div>
       </div>
     </main>
