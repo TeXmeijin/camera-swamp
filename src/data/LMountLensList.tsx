@@ -19,7 +19,7 @@ export const LMountLensList: Lens[] = [
    * Lマウント
    */
   {
-    id: "sigma2870f28",
+    id: "sig2870f28",
     makerId: "SIGMA",
     makerName: "シグマ",
     zoomType: "zoom",
@@ -45,7 +45,7 @@ export const LMountLensList: Lens[] = [
    * Lマウント
    */
   {
-    id: "panasonic100f28",
+    id: "pana100f28",
     makerId: "Panasonic",
     makerName: "パナソニック",
     zoomType: "single",
@@ -71,7 +71,7 @@ export const LMountLensList: Lens[] = [
    * Lマウント
    */
   {
-    id: "sigma105f28",
+    id: "sig105f28",
     makerId: "SIGMA",
     makerName: "シグマ",
     zoomType: "single",
@@ -97,7 +97,7 @@ export const LMountLensList: Lens[] = [
    * Lマウント
    */
   {
-    id: "panasonic28200f4-71",
+    id: "pana28200f4-71",
     makerId: "Panasonic",
     makerName: "パナソニック",
     zoomType: "zoom",
@@ -114,7 +114,7 @@ export const LMountLensList: Lens[] = [
   },
   /**
    * 20mm f1.4
-   * sigma
+   * sig
    * 実売100000円
    * 中古買取価格 70000円
    * 850g
@@ -123,7 +123,7 @@ export const LMountLensList: Lens[] = [
    * Lマウント
    */
   {
-    id: "sigma20f14",
+    id: "sig20f14",
     makerId: "SIGMA",
     makerName: "シグマ",
     zoomType: "single",
@@ -149,7 +149,7 @@ export const LMountLensList: Lens[] = [
    * Lマウント
    */
   {
-    id: "panasonic2060f35-56",
+    id: "pana2060f35-56",
     makerId: "Panasonic",
     makerName: "パナソニック",
     zoomType: "zoom",
@@ -175,7 +175,7 @@ export const LMountLensList: Lens[] = [
    * Lマウント
    */
   {
-    id: "panasonic50f18",
+    id: "pana50f18",
     makerId: "Panasonic",
     makerName: "パナソニック",
     zoomType: "single",
@@ -201,7 +201,7 @@ export const LMountLensList: Lens[] = [
    * Lマウント
    */
   {
-    id: "panasonic70200f4",
+    id: "pana70200f4",
     makerId: "Panasonic",
     makerName: "パナソニック",
     zoomType: "zoom",
@@ -227,7 +227,7 @@ export const LMountLensList: Lens[] = [
    * Lマウント
    */
   {
-    id: "panasonic70300f45-56",
+    id: "pana70300f45-56",
     makerId: "Panasonic",
     makerName: "パナソニック",
     zoomType: "zoom",
@@ -254,7 +254,7 @@ export const LMountLensList: Lens[] = [
    * Lマウント
    */
   {
-    id: "sigma90f28",
+    id: "sig90f28",
     makerId: "SIGMA",
     makerName: "シグマ",
     zoomType: "single",

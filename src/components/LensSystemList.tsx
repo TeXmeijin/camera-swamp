@@ -4,10 +4,9 @@ import clsx from "clsx";
 import { SpecDisplay } from "@/components/SpecDisplay";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useMemo } from "react";
-import { SystemState } from "@/types/SystemState";
+import { calculateSystemState, SystemState } from "@/types/SystemState";
 import { getLensDisplayName } from "@/types/getLensDisplayName";
 import { SystemStateDisplay } from "@/components/SystemStateDisplay";
-import { calculateSystemState } from "@/types/calculateSystemState";
 
 const Checkbox = ({
   lensId,
@@ -125,25 +124,28 @@ export const LensSystemList = ({
           まずは焦点距離の目盛りを作成します。
           左端から16 20 24 28 35 40 50 60 70 85 90 105 120 135 150 200
         */}
-      <div
-        className={"flex justify-between p-4"}
-        style={{
-          width: `${TABLE_WIDTH}px`,
-        }}
-      >
-        {MASTER_FOCUS_LENGTH.map((length, index) => {
-          return (
-            <div
-              key={index}
-              className={"flex flex-col items-center text-sm"}
-              style={{
-                width: `${FOCUS_WIDTH}px`,
-              }}
-            >
-              <div className={"text-center"}>{`${length}`}</div>
-            </div>
-          );
-        })}
+      <div className={"mt-4 flex px-4 py-2"}>
+        <div
+          className={"flex justify-between"}
+          style={{
+            width: `${TABLE_WIDTH}px`,
+          }}
+        >
+          {MASTER_FOCUS_LENGTH.map((length, index) => {
+            return (
+              <div
+                key={index}
+                className={"flex flex-col items-center text-sm"}
+                style={{
+                  width: `${FOCUS_WIDTH}px`,
+                }}
+              >
+                <div className={"text-center"}>{`${length}`}</div>
+              </div>
+            );
+          })}
+        </div>
+        <div className={"text-sm"}>(mm)</div>
       </div>
       {/*
         各レンズの焦点距離の幅分だけ描画します。
@@ -151,7 +153,7 @@ export const LensSystemList = ({
         ズームレンズの場合は対象の目盛りの最初から最後まで横一線に引っ張って左右が円形の長方形の形状になります。
         それぞれの描画の下の中央部分にレンズ名（XXmm FX.Xの形式）を表示します
        */}
-      <div className={"flex flex-col items-start mt-4"}>
+      <div className={"flex flex-col items-start"}>
         {targetLensList
           .sort((a, b) => {
             const aZoomWide =
