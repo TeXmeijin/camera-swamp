@@ -146,7 +146,7 @@ export const SystemStateDisplay = ({
       <div className="pt-2 mt-2 border-t flex border-t-gray-200">
         <div className={"flex-1"}>
           <p className="text-base text-gray-400">完成後のシステム</p>
-          <div className={"flex items-center gap-x-2 mt-1"}>
+          <div className={"flex flex-wrap items-center gap-x-2 mt-1"}>
             {fullLensNames.map((name) => (
               <p
                 className={
