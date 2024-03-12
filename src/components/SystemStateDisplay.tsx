@@ -1,9 +1,35 @@
 "use client";
-import { SystemState } from "@/types/SystemState";
+import { calculateSystemState, SystemState } from "@/types/SystemState";
 import { getLensDisplayName } from "@/types/getLensDisplayName";
 import { TwitterButton } from "@/components/TwitterButton";
+import { useSearchParams } from "next/navigation";
+import { useMemo } from "react";
+import { Lens } from "@/types/lens";
 
-export const SystemStateDisplay = ({ state }: { state: SystemState }) => {
+export const SystemStateDisplay = ({
+  targetLensList,
+}: {
+  targetLensList: Lens[];
+}) => {
+  const searchParams = useSearchParams();
+  const havingLensIds = searchParams.getAll("having");
+  const wantLensIds = searchParams.getAll("want");
+  const sellingLensIds = searchParams.getAll("selling");
+
+  const state: SystemState = useMemo(() => {
+    return calculateSystemState(
+      targetLensList,
+      havingLensIds,
+      wantLensIds,
+      sellingLensIds,
+    );
+  }, [targetLensList, havingLensIds, wantLensIds, sellingLensIds]);
+  const hasState = state.havingLenses.length > 0 || state.wantLenses.length > 0;
+
+  if (!hasState) {
+    return null;
+  }
+
   const lensNamesHavingMinusSelling = state.stat.having.lensNames.filter(
     (name) =>
       state.sellingLenses.filter((lens) => getLensDisplayName(lens) === name)
