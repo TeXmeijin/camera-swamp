@@ -5,6 +5,7 @@ import { usePathname, useSearchParams } from "next/navigation";
 type Props = {
   title: string;
   description: string;
+  subject: string;
 };
 
 export const TwitterButton = (props: Props) => {
@@ -15,7 +16,7 @@ export const TwitterButton = (props: Props) => {
   return (
     <a
       className={
-        "flex items-center shadow-lg hover:underline py-2 px-4 rounded-full border border-gray-300"
+        "flex items-center shadow-lg hover:underline py-2 px-4 rounded-full border-2 border-gray-300"
       }
       href={createTwitterUrl(
         title,
@@ -28,8 +29,8 @@ export const TwitterButton = (props: Props) => {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <Image src={"/x.svg"} alt={"X"} width={20} height={20} />
-      でポスト
+      <Image src={"/x.svg"} alt={"X"} width={20} height={20} />で{props.subject}
+      をポスト
     </a>
   );
 };

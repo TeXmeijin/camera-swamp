@@ -1,28 +1,8 @@
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import clsx from "clsx";
+import { LensCategory, useQueryParams } from "@/components/useQueryParams";
 
 export const Checkbox = ({ lensId }: { lensId: string }) => {
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const isChecked = (lensId: string, type: "having" | "want" | "selling") => {
-    return searchParams.getAll(type).includes(lensId);
-  };
-  const addLens = (lensId: string, type: "having" | "want" | "selling") => {
-    const newParams = new URLSearchParams(searchParams.toString());
-    newParams.append(type, lensId);
-    router.push(`${pathname}?${newParams.toString()}`, { scroll: false });
-  };
-  const removeLens = (lensId: string, type: "having" | "want" | "selling") => {
-    const newParams = new URLSearchParams(searchParams.toString());
-    // paramsから、そのlensIdのみを削除します
-    const currentLensIds = searchParams.getAll(type);
-    newParams.delete(type);
-    currentLensIds
-      .filter((id) => id !== lensId)
-      .forEach((id) => newParams.append(type, id));
-    router.push(`${pathname}?${newParams.toString()}`, { scroll: false });
-  };
+  const { isChecked, addLens, removeLens } = useQueryParams();
 
   const typeToLabel = {
     having: "所有",
@@ -34,7 +14,7 @@ export const Checkbox = ({ lensId }: { lensId: string }) => {
     type,
     label,
   }: {
-    type: "having" | "want" | "selling";
+    type: LensCategory;
     label: string;
   }) => {
     return (

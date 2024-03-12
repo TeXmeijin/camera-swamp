@@ -1,6 +1,6 @@
 import { Lens } from "@/types/lens";
-import { useSearchParams } from "next/navigation";
 import clsx from "clsx";
+import { useQueryParams } from "@/components/useQueryParams";
 
 export const LensTableRow = ({
   children,
@@ -9,10 +9,7 @@ export const LensTableRow = ({
   children: React.ReactNode;
   lens: Lens;
 }) => {
-  const searchParams = useSearchParams();
-  const isChecked = (lensId: string, type: "having" | "want" | "selling") => {
-    return searchParams.getAll(type).includes(lensId);
-  };
+  const { isChecked } = useQueryParams();
   return (
     <div
       className={clsx(

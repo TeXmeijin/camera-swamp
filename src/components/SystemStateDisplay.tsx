@@ -168,14 +168,17 @@ export const SystemStateDisplay = ({
             ).join(",")}mm`}</p>
           </div>
         </div>
-        <div className={"flex flex-col items-end justify-end"}>
-          <span>あなたの理想のシステムをシェア！</span>
-          <div>
-            <TwitterButton
-              title={"私の理想の" + mountFullName + "レンズシステムは"}
-              description={fullLensNames.join(", ") + "です！"}
-            ></TwitterButton>
-          </div>
+        <div className={"flex flex-col gap-y-2 items-end justify-end"}>
+          <TwitterButton
+            subject={"所有レンズ"}
+            title={"私が持っている" + mountFullName + "レンズは"}
+            description={state.stat.having.lensNames.join(", ") + "です！"}
+          ></TwitterButton>
+          <TwitterButton
+            subject={"理想のレンズ"}
+            title={"私の理想の" + mountFullName + "レンズシステムは"}
+            description={fullLensNames.join(", ") + "です！"}
+          ></TwitterButton>
         </div>
       </div>
     </div>
