@@ -9,10 +9,13 @@ import { Lens } from "@/types/lens";
 // });
 export const getLMountLensList = async () => {
   const res = await fetch(
-    "https://app.nocodb.com/api/v1/db/data/noco/poffo00jhzv76n0/ml1eo2wx74wdg7x/views/vwdqxksekqm3uoti?offset=0&limit=25&where=",
+    "https://app.nocodb.com/api/v1/db/data/noco/poffo00jhzv76n0/ml1eo2wx74wdg7x/views/vwdqxksekqm3uoti?offset=0&limit=25&where=(mount,eq,L)",
     {
       headers: {
         "xc-auth": process.env.NOCODB_API_KEY ?? "",
+      },
+      next: {
+        revalidate: 600,
       },
     },
   );
