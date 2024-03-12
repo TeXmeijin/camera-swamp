@@ -17,11 +17,7 @@ export const LensListBody = memo(
       <div className={"flex flex-col items-start"}>
         {targetLensList
           .sort((a, b) => {
-            const aZoomWide =
-              a.zoomType === "zoom" ? a.focalLengthMM.wide : a.focalLengthMM;
-            const bZoomWide =
-              b.zoomType === "zoom" ? b.focalLengthMM.wide : b.focalLengthMM;
-            return aZoomWide - bZoomWide;
+            return a.focalLengthMMWide - b.focalLengthMMWide;
           })
           .map((lens, index) => {
             /**
@@ -53,7 +49,7 @@ export const LensListBody = memo(
                     className={"flex "}
                     style={{
                       width: `${TABLE_WIDTH}px`,
-                      paddingLeft: `${getMarginLeft(lens.focalLengthMM)}px`,
+                      paddingLeft: `${getMarginLeft(lens.focalLengthMMWide)}px`,
                     }}
                   >
                     <div className="relative flex flex-col items-center">
@@ -80,16 +76,16 @@ export const LensListBody = memo(
               return getMarginLeft(tele) - getMarginLeft(wide);
             };
             const fDisplay =
-              lens.fValue.wide === lens.fValue.tele
-                ? lens.fValue.wide
-                : `${lens.fValue.wide} - ${lens.fValue.tele}`;
+              lens.fValueWide === lens.fValueTele
+                ? lens.fValueWide
+                : `${lens.fValueWide} - ${lens.fValueTele}`;
             return (
               <LensTableRow lens={lens} key={lens.id}>
                 <div
                   className={"flex"}
                   style={{
                     width: `${TABLE_WIDTH}px`,
-                    paddingLeft: `${getMarginLeft(lens.focalLengthMM.wide)}px`,
+                    paddingLeft: `${getMarginLeft(lens.focalLengthMMWide)}px`,
                   }}
                 >
                   <div className="relative flex flex-col items-center">
@@ -98,8 +94,8 @@ export const LensListBody = memo(
                       className={clsx(`rounded-full h-3`, makerColor)}
                       style={{
                         width: `${getWidth(
-                          lens.focalLengthMM.wide,
-                          lens.focalLengthMM.tele,
+                          lens.focalLengthMMWide,
+                          lens.focalLengthMMTele,
                         )}px`,
                       }}
                     ></div>

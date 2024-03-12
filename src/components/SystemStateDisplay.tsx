@@ -102,9 +102,11 @@ export const SystemStateDisplay = ({
           <p className="text-base text-gray-400">検討中のレンズ</p>
           <div className={"flex flex-wrap items-center gap-x-2 mt-1"}>
             {state.stat.want.lensNames.map((name) => {
-              const rank = state.wantLenses
-                .filter((lens) => getLensDisplayName(lens) === name)
-                .at(0)?.goopassRentalRank;
+              const rank = Number(
+                state.wantLenses
+                  .filter((lens) => getLensDisplayName(lens) === name)
+                  .at(0)?.goopassRentalRank,
+              );
               const rentalPriceFromRank =
                 rank === 1
                   ? 7480
