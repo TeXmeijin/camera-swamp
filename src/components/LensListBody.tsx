@@ -118,3 +118,5 @@ export const LensListBody = memo(
     );
   },
 );
+
+LensListBody.displayName = "LensListBody";
