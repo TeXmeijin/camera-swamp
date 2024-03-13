@@ -17,7 +17,11 @@ export const LensListBody = memo(
       <div className={"flex flex-col items-start"}>
         {targetLensList
           .sort((a, b) => {
-            return a.focalLengthMMWide - b.focalLengthMMWide;
+            const aWideConsiderMount =
+              a.mount === "MFT" ? a.focalLengthMMWide * 2 : a.focalLengthMMWide;
+            const bWideConsiderMount =
+              b.mount === "MFT" ? b.focalLengthMMWide * 2 : b.focalLengthMMWide;
+            return aWideConsiderMount - bWideConsiderMount;
           })
           .map((lens, index) => {
             /**
@@ -26,7 +30,8 @@ export const LensListBody = memo(
              * レンズの焦点距離の分だけ、w-16に掛け合わせます。
              * たとえば焦点距離が100mmだったら、90と105のちょうど間になります
              */
-            const getMarginLeft = (length: number) => {
+            const getMarginLeft = (length: number, lens: Lens) => {
+              if (lens.mount === "MFT") length = length * 2;
               for (let i = MASTER_FOCUS_LENGTH.length - 1; i >= 0; i--) {
                 if (MASTER_FOCUS_LENGTH[i] < length) {
                   return (
@@ -49,7 +54,10 @@ export const LensListBody = memo(
                     className={"flex "}
                     style={{
                       width: `${TABLE_WIDTH}px`,
-                      paddingLeft: `${getMarginLeft(lens.focalLengthMMWide)}px`,
+                      paddingLeft: `${getMarginLeft(
+                        lens.focalLengthMMWide,
+                        lens,
+                      )}px`,
                     }}
                   >
                     <div className="relative flex flex-col items-center">
@@ -73,7 +81,7 @@ export const LensListBody = memo(
               );
             }
             const getWidth = (wide: number, tele: number) => {
-              return getMarginLeft(tele) - getMarginLeft(wide);
+              return getMarginLeft(tele, lens) - getMarginLeft(wide, lens);
             };
             const fDisplay =
               lens.fValueWide === lens.fValueTele
@@ -85,7 +93,10 @@ export const LensListBody = memo(
                   className={"flex"}
                   style={{
                     width: `${TABLE_WIDTH}px`,
-                    paddingLeft: `${getMarginLeft(lens.focalLengthMMWide)}px`,
+                    paddingLeft: `${getMarginLeft(
+                      lens.focalLengthMMWide,
+                      lens,
+                    )}px`,
                   }}
                 >
                   <div className="relative flex flex-col items-center">

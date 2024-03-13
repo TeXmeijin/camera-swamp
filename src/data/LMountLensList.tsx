@@ -7,12 +7,19 @@ import { Lens } from "@/types/lens";
 //     "xc-auth": process.env.NOCODB_API_KEY,
 //   },
 // });
-export const getLMountLensList = async () => {
+export const getLensList = async (mount: string[]) => {
+  /**
+   * 以下ルールで算出
+   * mountが['L']の場合 %7Bmount%7D%3D'L'
+   * mount['L', 'MFT']の場合 %7Bmount%7D%3D'L'%2C%7Bmount%7D%3D'MFT'
+   */
+  const queryForMount = mount.map((m) => `%7Bmount%7D%3D'${m}'`).join("%2C");
+
   const res = await fetch(
-    "https://app.nocodb.com/api/v1/db/data/noco/poffo00jhzv76n0/ml1eo2wx74wdg7x/views/vwdqxksekqm3uoti?offset=0&limit=25&where=(mount,eq,L)",
+    `https://api.airtable.com/v0/appjqTXKpJhYNjC34/table?filterByFormula=OR(${queryForMount})&maxRecords=100`,
     {
       headers: {
-        "xc-auth": process.env.NOCODB_API_KEY ?? "",
+        Authorization: `Bearer ${process.env.DB_API_KEY}`,
       },
       next: {
         revalidate: 600,
@@ -20,9 +27,9 @@ export const getLMountLensList = async () => {
     },
   );
   const data = await res.json();
-  return data.list.map((l: { dbId: string } & any) => ({
-    ...l,
-    id: l.dbId,
+  return data.records.map((l: any) => ({
+    ...l.fields,
+    id: l.fields.dbId,
   })) as Lens[];
 };
 

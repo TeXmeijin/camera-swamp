@@ -59,13 +59,13 @@ export const SystemStateDisplay = ({
         state.wantLenses.length
       }
       className={
-        "fixed z-10 opacity-90 bottom-4 left-4 p-6 right-4 bg-white w-[calc(100vw-32px)] shadow-2xl rounded-xl animate-bounce"
+        "fixed z-10 bg-gray-50 bottom-4 left-4 p-4 right-4 w-[calc(100vw-32px)] shadow-2xl rounded-xl"
       }
       style={{
         animationIterationCount: 1,
       }}
     >
-      <p className={"font-bold text-xl pb-1 border-b border-b-gray-200"}>
+      <p className={"font-bold text-lg pb-1 border-b border-b-gray-200"}>
         あなたのレンズ
       </p>
       <div className="flex gap-x-4 mt-4">
@@ -125,7 +125,7 @@ export const SystemStateDisplay = ({
                   key={name + "want"}
                 >
                   {name}
-                  {rank && (
+                  {!!rank && (
                     <span
                       className={
                         "block ml-1 py-0.5 px-2 text-[10px] font-bold text-white bg-orange-700 rounded-full"

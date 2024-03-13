@@ -2,7 +2,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export type LensCategory = "having" | "want" | "selling";
 
-export const useQueryParams = () => {
+export const useQueryParamsForLens = () => {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();

@@ -42,7 +42,7 @@ export const LensSystemList = ({
             );
           })}
         </div>
-        <div className={"text-sm"}>(mm)</div>
+        <div className={"text-sm"}>(フルサイズ換算mm)</div>
       </div>
       <LensListBody targetLensList={targetLensList}></LensListBody>
     </div>

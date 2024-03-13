@@ -1,8 +1,11 @@
 import clsx from "clsx";
-import { LensCategory, useQueryParams } from "@/components/useQueryParams";
+import {
+  LensCategory,
+  useQueryParamsForLens,
+} from "@/components/useQueryParamsForLens";
 
 export const Checkbox = ({ lensId }: { lensId: string }) => {
-  const { isChecked, addLens, removeLens } = useQueryParams();
+  const { isChecked, addLens, removeLens } = useQueryParamsForLens();
 
   const typeToLabel = {
     having: "所有",
