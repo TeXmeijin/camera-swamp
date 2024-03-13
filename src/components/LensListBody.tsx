@@ -45,7 +45,13 @@ export const LensListBody = memo(
               return 0;
             };
             const makerColor =
-              lens.makerId === "SIGMA" ? "bg-gray-600" : "bg-red-600";
+              lens.makerId === "SIGMA"
+                ? "bg-gray-600"
+                : lens.makerId === "Panasonic"
+                ? "bg-red-600"
+                : lens.makerId === "OLYMPUS"
+                ? "bg-blue-600"
+                : "bg-gray-400";
 
             if (lens.zoomType === "single") {
               return (

@@ -4,10 +4,11 @@ export const SpecDisplay = (props: { lens: Lens }) => {
   return (
     <div
       className={
-        "text-nowrap p-0.5 text-gray-600 rounded-lg border border-gray-300 w-[380px] text-xs"
+        "text-nowrap p-0.5 text-gray-600 rounded-lg border border-gray-300 w-[440px] text-xs"
       }
     >
       <div className={"flex justify-center gap-x-2"}>
+        <div>{props.lens.makerName}</div>
         <div>{props.lens.mount}マウント</div>
         <div>{`実売${props.lens.salePrice.toLocaleString()}円`}</div>
         <div>{`買取${props.lens.buyOutPrice.toLocaleString()}円`}</div>

@@ -27,7 +27,7 @@ export const LensTableRow = ({
       {isChecked(lens.id, "having") && !isChecked(lens.id, "selling") && (
         <div
           className={
-            "absolute top-0 left-0 rounded-br-lg bg-emerald-800 text-white font-bold py-1 px-2 text-sm"
+            "absolute top-0 left-0 rounded-br-lg bg-emerald-800 text-white font-bold py-0.5 px-1 text-xs"
           }
         >
           所有
@@ -36,7 +36,7 @@ export const LensTableRow = ({
       {isChecked(lens.id, "want") && (
         <div
           className={
-            "absolute top-0 left-0 rounded-br-lg bg-blue-400 text-white font-bold py-1 px-2 text-sm"
+            "absolute top-0 left-0 rounded-br-lg bg-blue-400 text-white font-bold py-1 px-2 text-xs"
           }
         >
           欲しい
@@ -45,7 +45,7 @@ export const LensTableRow = ({
       {isChecked(lens.id, "selling") && (
         <div
           className={
-            "absolute top-0 left-0 rounded-br-lg bg-red-500 text-white font-bold py-1 px-2 text-sm"
+            "absolute top-0 left-0 rounded-br-lg bg-red-500 text-white font-bold py-0.5 px-1 text-xs"
           }
         >
           売りたい
