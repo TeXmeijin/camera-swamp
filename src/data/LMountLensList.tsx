@@ -22,7 +22,7 @@ export const getLensList = async (mount: string[]) => {
         Authorization: `Bearer ${process.env.DB_API_KEY}`,
       },
       next: {
-        revalidate: 600,
+        revalidate: 30,
       },
     },
   );
